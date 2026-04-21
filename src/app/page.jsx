@@ -5,6 +5,7 @@ import Card from "@/components/Home/Card";
 import { MoveRight } from "lucide-react";
 import { stats } from "@/constants/data";
 import StatCard from "@/components/Home/StatsCard";
+import Link from "next/link";
 export default function Home() {
   return (
     <>
@@ -90,10 +91,10 @@ export default function Home() {
           <p className="text-xl text-indigo-100 mb-10">
             Browse through our exclusive collection of premium products
           </p>
-          <button className="group px-10 py-4 bg-white text-indigo-600 font-bold rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer flex items-center gap-2">
+          <Link href="/shop" className="group px-10 py-4 bg-white text-indigo-600 font-bold rounded-xl shadow-lg hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer flex items-center gap-2">
             Start Shopping Now
             <MoveRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-          </button>
+          </Link>
         </div>
       </section>
     </>

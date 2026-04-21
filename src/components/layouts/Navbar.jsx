@@ -75,7 +75,7 @@ const Navbar = () => {
         {/* MOBILE MENU */}
         {open && (
           <div className="lg:hidden mt-4 pt-4 border-t border-white/20 animate-in fade-in slide-in-from-top-2 duration-200">
-            <ul className="flex flex-col gap-3 font-medium">
+            <ul className="flex flex-col gap-3 font-medium items-center">
               <li>
                 <Link href="/" onClick={() => setOpen(false)} className="block px-4 py-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-300">
                   Home
