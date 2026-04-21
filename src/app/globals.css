@@ -1,8 +1,7 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-/* Smooth scrolling */
-html {
+html{
   scroll-behavior: smooth;
 }
 

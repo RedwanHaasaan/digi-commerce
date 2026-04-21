@@ -35,6 +35,12 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/about" className="text-white hover:text-indigo-100 transition-colors duration-300 relative group">
+                  About
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-200 group-hover:w-full transition-all duration-300"></span>
+                </Link>
+              </li>
+              <li>
                 <Link href="/contact" className="text-white hover:text-indigo-100 transition-colors duration-300 relative group">
                   Contact
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-200 group-hover:w-full transition-all duration-300"></span>
@@ -78,6 +84,11 @@ const Navbar = () => {
               <li>
                 <Link href="/shop" onClick={() => setOpen(false)} className="block px-4 py-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-300">
                   Shop
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" onClick={() => setOpen(false)} className="block px-4 py-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-300">
+                  About
                 </Link>
               </li>
               <li>
