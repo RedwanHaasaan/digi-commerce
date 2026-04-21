@@ -1,63 +1,99 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X,} from "lucide-react";
+import { Menu, X, ShoppingCart, Search} from "lucide-react";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="bg-blue-600 border-b border-gray-200 sticky top-0 z-50">
-      <div className="navbar px-4 md:px-8">
+    <div className="sticky top-0 z-50 bg-linear-to-r from-indigo-600 via-purple-600 to-indigo-700 shadow-lg border-b border-indigo-500/20">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 py-4">
+        <div className="flex items-center justify-between">
 
-        {/* LEFT: Logo */}
-        <div className="flex-1">
+          {/* LEFT: Logo */}
           <Link
             href="/"
-            className="text-2xl font-extrabold text-white tracking-tight"
+            className="text-3xl font-bold bg-linear-to-r from-white to-indigo-100 bg-clip-text text-transparent hover:from-indigo-100 hover:to-white transition-all duration-300 tracking-tight"
           >
-            DigiCommerce
+            ✦ DigiCommerce
           </Link>
+
+          {/* CENTER: Desktop Menu */}
+          <div className="hidden lg:flex items-center gap-8">
+            <ul className="flex gap-8 font-medium">
+              <li>
+                <Link href="/" className="text-white hover:text-indigo-100 transition-colors duration-300 relative group">
+                  Home
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-200 group-hover:w-full transition-all duration-300"></span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/shop" className="text-white hover:text-indigo-100 transition-colors duration-300 relative group">
+                  Shop
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-200 group-hover:w-full transition-all duration-300"></span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-white hover:text-indigo-100 transition-colors duration-300 relative group">
+                  Contact
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-indigo-200 group-hover:w-full transition-all duration-300"></span>
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* RIGHT: Actions */}
+          <div className="flex items-center gap-4">
+            {/* Search Icon - Desktop */}
+            <button className="hidden md:block p-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-300">
+              <Search size={20} />
+            </button>
+            
+            {/* Cart Icon - Desktop */}
+            <button className="hidden md:block p-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-300 relative">
+              <ShoppingCart size={20} />
+              <span className="absolute top-0 right-0 h-5 w-5 bg-yellow-400 text-indigo-700 rounded-full text-xs font-bold flex items-center justify-center">0</span>
+            </button>
+            
+            {/* Mobile Toggle */}
+            <button
+              onClick={() => setOpen(!open)}
+              className="lg:hidden p-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-300"
+            >
+              {open ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
-        {/* CENTER: Desktop Menu */}
-        <div className="hidden lg:flex">
-          <ul className="flex gap-6 font-medium text-white">
-            <li><Link href="/" >Home</Link></li>
-            <li><Link href="/shop" >Shop</Link></li>
-            <li><Link href="/contact">Contact</Link></li>
-          </ul>
-        </div>
-
-        {/* RIGHT: Actions */}
-        <div className="flex items-center gap-3">
-          {/* Mobile Toggle */}
-          <button
-            onClick={() => setOpen(!open)}
-            className="lg:hidden p-2 rounded-md hover:bg-gray-100"
-          >
-            {open ? <X size={22} className="text-white" /> : <Menu size={22} className="text-white" />}
-          </button>
-
-        </div>
+        {/* MOBILE MENU */}
+        {open && (
+          <div className="lg:hidden mt-4 pt-4 border-t border-white/20 animate-in fade-in slide-in-from-top-2 duration-200">
+            <ul className="flex flex-col gap-3 font-medium">
+              <li>
+                <Link href="/" onClick={() => setOpen(false)} className="block px-4 py-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-300">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/shop" onClick={() => setOpen(false)} className="block px-4 py-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-300">
+                  Shop
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" onClick={() => setOpen(false)} className="block px-4 py-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-300">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <button className="w-full flex items-center gap-2 px-4 py-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-300">
+                  <ShoppingCart size={18} /> Cart (0)
+                </button>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
-
-      {/* MOBILE MENU */}
-      {open && (
-        <div className="lg:hidden px-4 pb-4">
-          <ul className="flex flex-col gap-4 font-medium text-white items-center">
-            <li>
-              <Link href="/" onClick={() => setOpen(false)}>Home</Link>
-            </li>
-            <li>
-              <Link href="/shop" onClick={() => setOpen(false)}>Shop</Link>
-            </li>
-            <li>
-              <Link href="/contact" onClick={() => setOpen(false)}>Contact</Link>
-            </li>
-          </ul>
-        </div>
-      )}
     </div>
   );
 };

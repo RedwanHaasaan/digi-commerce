@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "DigiCommerce",
-  description: "An e-commerce website built with Next.js and Tailwind CSS.",
+  title: "DigiCommerce - Premium Shopping Experience",
+  description: "An e-commerce website built with Next.js and Tailwind CSS. Discover premium products with timeless elegance.",
 };
 
 export default function RootLayout({ children }) {
@@ -28,14 +28,14 @@ export default function RootLayout({ children }) {
     <head>
       <link rel="icon" type="image/x-icon" href="/favicon.png"/>
     </head>
-      <body className="min-h-full flex flex-col">
-        <header>
+      <body className="flex flex-col min-h-screen bg-white">
+        <header className="sticky top-0 z-50">
             <Navbar/>
         </header>
-        <main>
+        <main className="grow">
             {children}
         </main>
-        <footer>
+        <footer className="mt-auto">
             <Footer/>
         </footer>
       </body>
