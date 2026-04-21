@@ -15,15 +15,11 @@ export default function NotFound() {
           />
         </div>
 
-        {/* Title */}
-        <h1 className="text-5xl font-bold text-gray-800 tracking-tight">
-          404
-        </h1>
 
-        {/* Subtitle */}
-        <h2 className="text-xl font-medium text-gray-700 mt-2">
+        {/* title */}
+        <h1 className="text-xl font-medium text-gray-700 mt-2">
           Page not found
-        </h2>
+        </h1>
 
         {/* Description */}
         <p className="text-gray-500 mt-2 max-w-md mx-auto">
