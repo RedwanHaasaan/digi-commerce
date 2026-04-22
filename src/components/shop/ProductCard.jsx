@@ -1,0 +1,108 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+
+export default function ProductCard({
+  product,
+  badge = "New",
+}) {
+  const [wished, setWished] = useState(false);
+  const [added, setAdded] = useState(false);
+
+  const handleAdd = () => {
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1500);
+  };
+
+  return (
+    <div className="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden w-[290px]">
+      
+      {/* Image Section */}
+      <div className="relative h-[220px] flex items-center justify-center bg-linear-to-br from-gray-100 to-gray-200">
+        
+        {/* Glow */}
+        <div className="absolute w-40 h-40 bg-indigo-500/20 blur-3xl rounded-full"></div>
+
+        {/* Badge */}
+        {badge && (
+          <span className="absolute top-3 left-3 bg-indigo-600 text-white text-[10px] font-semibold px-2 py-1 rounded-full z-10">
+            ✦ {badge}
+          </span>
+        )}
+
+        {/* Wishlist */}
+        <button
+          onClick={() => setWished(!wished)}
+          className={`absolute top-3 right-3 w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md transition ${
+            wished ? "text-red-500" : "text-gray-400"
+          }`}
+        >
+          ♥
+        </button>
+
+        {/* Image */}
+        <Image
+          src={product.image}
+          alt={product.title}
+          width={140}
+          height={140}
+          className="object-contain z-10 transition-transform duration-300 group-hover:scale-105"
+        />
+      </div>
+
+      {/* Body */}
+      <div className="p-4">
+        
+        {/* Category */}
+        <span className="inline-block text-[10px] font-semibold text-indigo-600 bg-indigo-100 px-2 py-1 rounded-full mb-2">
+          ✦ {product.category}
+        </span>
+
+        {/* Title */}
+        <h3 className="text-sm font-bold text-gray-800 line-clamp-2 mb-1">
+          {product.title}
+        </h3>
+
+        {/* Rating */}
+        <div className="flex items-center text-yellow-400 text-xs mb-3">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <span key={i}>
+              {i < Math.round(product?.rating?.rate || 4) ? "★" : "☆"}
+            </span>
+          ))}
+          <span className="text-gray-400 ml-1 text-[11px]">
+            {product?.rating?.rate || 4.5}
+          </span>
+        </div>
+
+        {/* Divider */}
+        <div className="h-px bg-gray-200 mb-3"></div>
+
+        {/* Price */}
+        <div className="flex justify-between items-center mb-3">
+          <div>
+            <span className="text-lg font-bold text-indigo-600">
+              ${product.price}
+            </span>
+          </div>
+          <span className="text-[10px] font-bold bg-orange-100 text-orange-500 px-2 py-1 rounded-full">
+            20% OFF
+          </span>
+        </div>
+
+        {/* Button */}
+        <button
+          onClick={handleAdd}
+          className={`w-full py-2 rounded-xl text-sm font-semibold transition-all ${
+            added
+              ? "bg-green-500 text-white"
+              : "bg-indigo-600 text-white hover:bg-indigo-700"
+          }`}
+        >
+          {added ? "Added!" : "Add to Cart"}
+        </button>
+      </div>
+    </div>
+  );
+}
