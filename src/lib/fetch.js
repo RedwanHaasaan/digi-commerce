@@ -1,11 +1,12 @@
 export const fetchProducts = async (url) => {
   const response = await fetch(url, {
-    cache: "no-store",
+    next: { revalidate: 1800 },
   });
 
   if (!response.ok) {
     const text = await response.text();
     console.error("Fetch failed:", {
+      url,
       status: response.status,
       body: text,
     });
@@ -13,5 +14,5 @@ export const fetchProducts = async (url) => {
     throw new Error(`Fetch failed: ${response.status}`);
   }
 
-  return response.json();
+  return await response.json();
 };

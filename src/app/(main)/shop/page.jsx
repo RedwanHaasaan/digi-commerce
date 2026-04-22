@@ -4,7 +4,6 @@ import { getProducts } from "@/service/productServices";
 
 const page = async () => {
   const products = await getProducts();
-  console.log(products)
   return (
     <div className="flex flex-col gap-5 py-20">
       <div className="container mx-auto">
