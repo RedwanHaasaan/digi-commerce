@@ -26,7 +26,7 @@ export default function ProductCard({
 
         {/* Image */}
         <Image
-          src={product.image}
+          src={product.thumbnail}
           alt={product.title}
           fill
           sizes="(max-width: 768px) 290px, (max-width: 1280px) 33vw, 25vw"

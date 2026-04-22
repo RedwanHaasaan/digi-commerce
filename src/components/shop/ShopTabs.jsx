@@ -11,19 +11,19 @@ const ShopTabs = () => {
     },
     {
       id: 2,
-      name: "T-shirts",
+      name: "Beauty",
     },
     {
       id: 3,
-      name: "Jachets",
+      name: "Fragrances",
     },
     {
       id: 4,
-      name: "Accessories",
+      name: "Furniture",
     },
     {
       id: 5,
-      name: "Electronics",
+      name: "Groceries",
     },
   ];
   return (
