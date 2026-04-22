@@ -1,20 +1,10 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
+import { AddToCartButton, WishlistButton } from "./ProductCardActions";
 
 export default function ProductCard({
   product,
   badge = "New",
 }) {
-  const [wished, setWished] = useState(false);
-  const [added, setAdded] = useState(false);
-
-  const handleAdd = () => {
-    setAdded(true);
-    setTimeout(() => setAdded(false), 1500);
-  };
-
   return (
     <div className="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden w-[290px]">
       
@@ -32,14 +22,7 @@ export default function ProductCard({
         )}
 
         {/* Wishlist */}
-        <button
-          onClick={() => setWished(!wished)}
-          className={`absolute top-3 right-3 w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md transition ${
-            wished ? "text-red-500" : "text-gray-400"
-          }`}
-        >
-          ♥
-        </button>
+        <WishlistButton />
 
         {/* Image */}
         <Image
@@ -92,16 +75,7 @@ export default function ProductCard({
         </div>
 
         {/* Button */}
-        <button
-          onClick={handleAdd}
-          className={`w-full py-2 rounded-xl text-sm font-semibold transition-all ${
-            added
-              ? "bg-green-500 text-white"
-              : "bg-indigo-600 text-white hover:bg-indigo-700"
-          }`}
-        >
-          {added ? "Added!" : "Add to Cart"}
-        </button>
+        <AddToCartButton />
       </div>
     </div>
   );
