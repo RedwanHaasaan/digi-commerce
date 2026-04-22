@@ -2,8 +2,6 @@ import ProductCard from "@/components/shop/ProductCard";
 import ShopTabs from "@/components/shop/ShopTabs";
 import { getProducts } from "@/service/productServices";
 
-export const dynamic = "force-dynamic";
-
 const page = async () => {
   const products = await getProducts();
   return (
