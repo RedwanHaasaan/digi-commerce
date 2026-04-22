@@ -28,9 +28,9 @@ export default function ProductCard({
         <Image
           src={product.image}
           alt={product.title}
-          width={140}
-          height={140}
-          className="object-contain z-10 transition-transform duration-300 group-hover:scale-105"
+          fill
+          sizes="(max-width: 768px) 290px, (max-width: 1280px) 33vw, 25vw"
+          className="object-contain p-6 z-10 transition-transform duration-300 group-hover:scale-105"
         />
       </div>
 

@@ -1,7 +1,7 @@
 export const fetchProducts = async (url, fallback = []) => {
   try {
     const response = await fetch(url, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 60 },
     });
 
     if (!response.ok) {
