@@ -6,7 +6,7 @@ export default function ProductCard({
   badge = "New",
 }) {
   return (
-    <div className="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden w-[290px]">
+    <div className="bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden w-[290px] cursor-pointer">
       
       {/* Image Section */}
       <div className="relative h-[220px] flex items-center justify-center bg-linear-to-br from-gray-100 to-gray-200">
