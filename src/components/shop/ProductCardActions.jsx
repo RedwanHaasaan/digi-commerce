@@ -5,13 +5,12 @@ import { useState } from "react";
 export function WishlistButton() {
   const [wished, setWished] = useState(false);
   const handleWishList = () =>{
-    console.log("clicked");
     setWished(!wished)
   }
   return (
     <button
       onClick={ handleWishList}
-      className={`absolute top-3 z-30 right-3 w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md transition ${
+      className={`absolute top-3 z-30 right-3 w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md transition cursor-pointer ${
         wished ? "text-red-500" : "text-gray-400"
       }`}
       aria-label={wished ? "Remove from wishlist" : "Add to wishlist"}
