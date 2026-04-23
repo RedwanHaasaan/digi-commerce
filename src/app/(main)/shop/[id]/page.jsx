@@ -1,5 +1,10 @@
 import { findProduct } from "@/lib/findProduct";
+import { getProductParams } from "@/lib/getProductParams";
 import Image from "next/image";
+
+export async function generateStaticParams() {
+  return await getProductParams("https://dummyjson.com/products?limit=30");
+}
 
 const ProductDetails = async ({ params }) => {
   const { id } = await params;
