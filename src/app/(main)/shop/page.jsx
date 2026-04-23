@@ -2,8 +2,10 @@ import ProductCard from "@/components/shop/ProductCard";
 import ShopTabs from "@/components/shop/ShopTabs";
 import { getProducts } from "@/service/productServices";
 
-const page = async () => {
-  const products = await getProducts();
+const page = async ({searchParams}) => {
+  const params = await searchParams;
+  const category = params.category;
+  const products = await getProducts(category);
   return (
     <div className="flex flex-col gap-5 py-20">
       <div className="container mx-auto">
