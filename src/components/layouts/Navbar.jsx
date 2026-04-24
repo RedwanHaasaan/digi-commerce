@@ -57,10 +57,10 @@ const Navbar = () => {
             </button>
             
             {/* Cart Icon - Desktop */}
-            <button className="hidden md:block p-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-300 relative">
+            <label htmlFor="cart-drawer" className="hidden md:block p-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-300 relative cursor-pointer">
               <ShoppingCart size={20} />
               <span className="absolute top-0 right-0 h-5 w-5 bg-yellow-400 text-indigo-700 rounded-full text-xs font-bold flex items-center justify-center">0</span>
-            </button>
+            </label>
             
             {/* Mobile Toggle */}
             <button
