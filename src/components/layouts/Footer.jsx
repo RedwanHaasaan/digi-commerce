@@ -1,4 +1,4 @@
-import React from "react";
+"use client"
 import { Mail, Phone, MapPin } from "lucide-react";
 import Link from "next/link";
 import FacebookIcon from "@mui/icons-material/Facebook";
