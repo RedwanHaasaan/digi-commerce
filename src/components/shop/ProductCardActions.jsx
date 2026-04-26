@@ -31,7 +31,7 @@ export function AddToCartButton() {
   return (
     <button
       onClick={handleAdd}
-      className={`w-full py-2 rounded-xl text-sm font-semibold transition-all ${
+      className={`w-full py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer ${
         added
           ? "bg-green-500 text-white"
           : "bg-indigo-600 text-white hover:bg-indigo-700"

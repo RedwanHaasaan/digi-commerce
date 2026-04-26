@@ -1,5 +1,6 @@
 "use client";
 
+import useCart from "@/hooks/useCart";
 import { ArrowRight, ShoppingBasket } from "lucide-react";
 import Link from "next/link";
 const CartButton = () => {
