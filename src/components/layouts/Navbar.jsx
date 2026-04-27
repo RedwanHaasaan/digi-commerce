@@ -98,9 +98,9 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <button className="w-full flex items-center gap-2 px-4 py-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-300">
+                <Link href="/shop/cart" className="w-full flex items-center gap-2 px-4 py-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-300">
                   <ShoppingCart size={18} /> Cart ({cart.length})
-                </button>
+                </Link>
               </li>
             </ul>
           </div>

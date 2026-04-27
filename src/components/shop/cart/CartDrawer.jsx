@@ -1,10 +1,11 @@
-"use client"
+"use client";
 import useCart from "@/hooks/useCart";
 import CartButton from "./CartButton";
 import CartItem from "./CartItem";
+import NoProduct from "./NoProduct";
 
 export default function CartDrawer({ children }) {
-const {cart}=useCart();
+  const { cart } = useCart();
   return (
     <div className="drawer drawer-end">
       {/* Toggle */}
@@ -26,7 +27,9 @@ const {cart}=useCart();
               <h2 className="text-2xl font-semibold text-gray-900 tracking-tight">
                 Your Cart
               </h2>
-              <p className="text-xs text-gray-400 mt-1">{cart.length} premium items</p>
+              <p className="text-xs text-gray-400 mt-1">
+                {cart.length} premium items
+              </p>
             </div>
 
             <div className="h-9 w-9 rounded-full bg-gray-100 flex items-center justify-center shadow-inner">
@@ -36,9 +39,13 @@ const {cart}=useCart();
 
           {/* Items */}
           <div className="flex-1 max-h-132 overflow-y-auto space-y-5 pr-1">
-            {
-              cart.map((cartItem)=><CartItem key={cartItem.id} cartItem={cartItem}/>)
-            }
+            {cart.length > 0 ? (
+              cart.map((cartItem) => (
+                <CartItem key={cartItem.id} cartItem={cartItem} />
+              ))
+            ) : (
+              <NoProduct />
+            )}
           </div>
 
           {/* Footer */}
@@ -63,7 +70,7 @@ const {cart}=useCart();
               </div>
             </div>
             {/* CTA */}
-              <CartButton />
+            <CartButton />
           </div>
         </div>
       </div>

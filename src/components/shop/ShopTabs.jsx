@@ -20,7 +20,7 @@ const ShopTabs = () => {
     <div className="flex flex-col md:flex-row gap-4 md:gap-0 md:px-8 justify-between items-center">
       
       {/* Tabs */}
-      <div className="flex gap-4 flex-wrap">
+      <div className="flex gap-4 flex-wrap justify-center">
         {tabs.map((tab) => {
           const category = tab.name.toLowerCase();
 

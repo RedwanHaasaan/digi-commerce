@@ -1,4 +1,3 @@
-import { AddToCartButton } from "@/components/shop/ProductCardActions";
 import ProductDetailsAction from "@/components/shop/ProductDetails/ProductDetailsAction";
 import { findProduct } from "@/lib/findProduct";
 import { getProductParams } from "@/lib/getProductParams";
@@ -11,13 +10,14 @@ export async function generateStaticParams() {
 const ProductDetails = async ({ params }) => {
   const { id } = await params;
   const product = await findProduct(id);
+  const reviews = product.reviews ?? [];
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
       <div className="grid md:grid-cols-2 gap-10">
         {/* Image */}
         <div className="bg-gray-100 rounded-2xl p-6 flex items-center justify-center">
           <Image
-            src={product.images?.[0]}
+            src={product.thumbnail}
             alt={product.title}
             width={400}
             height={400}
@@ -44,7 +44,7 @@ const ProductDetails = async ({ params }) => {
               <span key={i}>{i < Math.round(product.rating) ? "★" : "☆"}</span>
             ))}
             <span className="text-gray-500 text-sm">
-              {product.rating} ({product.reviews.length} reviews)
+              {product.rating} ({reviews.length} reviews)
             </span>
           </div>
 
@@ -92,13 +92,13 @@ const ProductDetails = async ({ params }) => {
           <h2 className="text-2xl font-bold">Customer Reviews</h2>
 
           <span className="text-sm text-gray-500">
-            {product.reviews.length} Reviews
+            {reviews.length} Reviews
           </span>
         </div>
 
         {/* Review List */}
         <div className="space-y-6">
-          {product.reviews.map((review, i) => (
+          {reviews.map((review, i) => (
             <div
               key={i}
               className="border border-gray-200 rounded-xl p-5 hover:shadow-md transition"
