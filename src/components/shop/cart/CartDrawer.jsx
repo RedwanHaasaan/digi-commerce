@@ -4,7 +4,6 @@ import CartButton from "./CartButton";
 import CartItem from "./CartItem";
 import NoProduct from "./NoProduct";
 import OrderSummery from "./OrderSummery";
-import Link from "next/link";
 
 export default function CartDrawer({ children }) {
   const { cart } = useCart();
