@@ -18,10 +18,11 @@ export default function ProductCard({ product, badge = "New" }) {
         )}
 
         {/* Wishlist */}
-        <WishlistButton />
+        <WishlistButton product={product} />
 
         {/* Image */}
         <Image
+          loading="eager"
           src={product.thumbnail}
           alt={product.title}
           fill

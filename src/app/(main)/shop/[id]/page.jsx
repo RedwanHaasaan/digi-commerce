@@ -1,3 +1,5 @@
+import { AddToCartButton } from "@/components/shop/ProductCardActions";
+import ProductDetailsAction from "@/components/shop/ProductDetails/ProductDetailsAction";
 import { findProduct } from "@/lib/findProduct";
 import { getProductParams } from "@/lib/getProductParams";
 import Image from "next/image";
@@ -71,12 +73,7 @@ const ProductDetails = async ({ params }) => {
 
           {/* Buttons */}
           <div className="flex gap-4 mb-6">
-            <button className="bg-indigo-600 text-white px-6 py-3 rounded-xl hover:bg-indigo-700 transition">
-              Add to Cart
-            </button>
-            <button className="border px-6 py-3 rounded-xl hover:bg-gray-100 transition">
-              ♥ Wishlist
-            </button>
+            <ProductDetailsAction product={product}/>
           </div>
 
           {/* Extra Info */}

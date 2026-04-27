@@ -10,6 +10,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       className="h-full antialiased"
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <head>
