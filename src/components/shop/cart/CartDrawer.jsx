@@ -3,6 +3,8 @@ import useCart from "@/hooks/useCart";
 import CartButton from "./CartButton";
 import CartItem from "./CartItem";
 import NoProduct from "./NoProduct";
+import OrderSummery from "./OrderSummery";
+import Link from "next/link";
 
 export default function CartDrawer({ children }) {
   const { cart } = useCart();
@@ -47,30 +49,13 @@ export default function CartDrawer({ children }) {
               <NoProduct />
             )}
           </div>
-
+          <div>
+          </div>
           {/* Footer */}
-          <div className="mt-6">
-            {/* Glass Panel */}
-            <div className="bg-white/70 backdrop-blur-lg border border-gray-200 rounded-2xl p-4 shadow-inner space-y-3">
-              <div className="flex justify-between text-sm text-gray-500">
-                <span>Subtotal</span>
-                <span className="text-gray-800 font-medium">$90</span>
-              </div>
-
-              <div className="flex justify-between text-sm text-gray-500">
-                <span>Delivery</span>
-                <span className="text-green-500 font-medium">Free</span>
-              </div>
-
-              <div className="h-px bg-gray-200"></div>
-
-              <div className="flex justify-between text-lg font-semibold text-gray-900">
-                <span>Total</span>
-                <span>$90</span>
-              </div>
-            </div>
-            {/* CTA */}
-            <CartButton />
+          <div className="mt-6 border-t border-gray-200 pt-2">
+              <OrderSummery/>
+              {/* Go to cart */}
+              <CartButton text="Go to Cart" path="/shop/cart"/>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 "use client";
 import { ArrowRight, ShoppingBasket } from "lucide-react";
 import Link from "next/link";
-const CartButton = () => {
+const CartButton = ({text,path}) => {
     const handleCloseDrawer = () => {
         const drawer = document.getElementById("cart-drawer");
         if (drawer) drawer.checked = false;
@@ -9,14 +9,14 @@ const CartButton = () => {
   return (
     <div className="flex flex-col mt-4">
       <Link
-        href="/shop"
+        href={`${path}`}
         className="flex-1 group px-8 py-4 rounded-xl bg-linear-to-r from-indigo-600 to-purple-600 text-white font-bold shadow-lg hover:shadow-2xl hover:from-indigo-700 hover:to-purple-700 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2"
       >
         <ShoppingBasket
           size={20}
           className="group-hover:rotate-12 transition-transform duration-300"
         />
-        Checkout
+        {text}
         <ArrowRight
           size={20}
           className="group-hover:translate-x-1 transition-transform duration-300"
