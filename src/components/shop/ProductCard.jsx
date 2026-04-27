@@ -66,12 +66,12 @@ export default function ProductCard({ product, badge = "New" }) {
             </span>
           </div>
           <span className="text-[10px] font-bold bg-orange-100 text-orange-500 px-2 py-1 rounded-full">
-            20% OFF
+            {Math.ceil(product.discountPercentage)}% OFF
           </span>
         </div>
 
         {/* Button */}
-        <AddToCartButton />
+        <AddToCartButton product={product}/>
       </div>
     </div>
   );

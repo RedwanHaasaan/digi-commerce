@@ -2,10 +2,11 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, ShoppingCart, Search} from "lucide-react";
+import useCart from "@/hooks/useCart";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-
+  const {cart}=useCart();
   return (
     <div className="sticky top-0 z-50 bg-linear-to-r from-indigo-600 via-purple-600 to-indigo-700 shadow-lg border-b border-indigo-500/20">
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-4">
@@ -59,7 +60,7 @@ const Navbar = () => {
             {/* Cart Icon - Desktop */}
             <label htmlFor="cart-drawer" className="hidden md:block p-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-300 relative cursor-pointer">
               <ShoppingCart size={20} />
-              <span className="absolute top-0 right-0 h-5 w-5 bg-yellow-400 text-indigo-700 rounded-full text-xs font-bold flex items-center justify-center">0</span>
+              <span className="absolute top-0 right-0 h-5 w-5 bg-yellow-400 text-indigo-700 rounded-full text-xs font-bold flex items-center justify-center">{cart.length}</span>
             </label>
             
             {/* Mobile Toggle */}
@@ -98,7 +99,7 @@ const Navbar = () => {
               </li>
               <li>
                 <button className="w-full flex items-center gap-2 px-4 py-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-300">
-                  <ShoppingCart size={18} /> Cart (0)
+                  <ShoppingCart size={18} /> Cart ({cart.length})
                 </button>
               </li>
             </ul>

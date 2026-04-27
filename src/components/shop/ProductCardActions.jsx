@@ -1,5 +1,6 @@
 "use client";
 
+import useCart from "@/hooks/useCart";
 import { useState } from "react";
 
 export function WishlistButton() {
@@ -20,17 +21,19 @@ export function WishlistButton() {
   );
 }
 
-export function AddToCartButton() {
+export function AddToCartButton({product}) {
+  const{addToCartProduct}=useCart();
   const [added, setAdded] = useState(false);
 
-  const handleAdd = () => {
+  const handleAdd = (item) => {
     setAdded(true);
+    addToCartProduct(item)
     setTimeout(() => setAdded(false), 1500);
   };
 
   return (
     <button
-      onClick={handleAdd}
+      onClick={()=>handleAdd(product)}
       className={`w-full py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer ${
         added
           ? "bg-green-500 text-white"
