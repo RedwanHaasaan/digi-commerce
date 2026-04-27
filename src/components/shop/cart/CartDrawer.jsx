@@ -39,7 +39,7 @@ export default function CartDrawer({ children }) {
           </div>
 
           {/* Items */}
-          <div className="flex-1 max-h-132 overflow-y-auto space-y-5 pr-1">
+          <div className="flex-1 max-h-132 overflow-y-auto no-scrollbar space-y-5 pr-1">
             {cart.length > 0 ? (
               cart.map((cartItem) => (
                 <CartItem key={cartItem.id} cartItem={cartItem} />

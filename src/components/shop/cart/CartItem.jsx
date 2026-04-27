@@ -4,7 +4,7 @@ import CartItemButton from "./CartItemButton";
 const CartItem =({cartItem})=>{
  return(
     <>
-    <div className="group flex gap-4 items-center bg-white/80 backdrop-blur-md rounded-2xl p-4 shadow-[0_8px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)] transition-all duration-300">
+    <div className="group flex gap-4 items-center bg-white/80 backdrop-blur-md rounded-2xl p-4 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200">
       {/* Image */}
       <div className="relative">
         <Image

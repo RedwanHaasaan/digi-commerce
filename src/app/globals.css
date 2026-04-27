@@ -1,6 +1,14 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
 /* Custom animations */
 @keyframes fadeInUp {
   from {

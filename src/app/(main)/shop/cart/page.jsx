@@ -11,7 +11,7 @@ const Page = () => {
   return (
     <div className="bg-base-200 min-h-105">
       <div className="container mx-auto py-10 px-2 flex flex-col lg:flex-row gap-10">
-        <div className="bg-white rounded-lg p-4 shadow-md flex flex-col gap-4 flex-1">
+        <div className="bg-base-100 rounded-lg p-4 shadow-md flex flex-col gap-4 flex-1">
           <h1 className="text-2xl font-semibold border-b pb-4 border-b-gray-300">
             Your Cart
           </h1>
