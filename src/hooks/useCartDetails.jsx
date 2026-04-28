@@ -36,8 +36,7 @@ const useCartDetails = () => {
 
   const cartWithDetails = useMemo(
     () =>
-      cart
-        .map(({ productId, quantity }) => {
+      cart.map(({ productId, quantity }) => {
           const product = productMap[productId];
 
           if (!product) {
@@ -48,8 +47,7 @@ const useCartDetails = () => {
             ...product,
             quantity,
           };
-        })
-        .filter(Boolean),
+        }).filter(Boolean),
     [cart, productMap]
   );
 

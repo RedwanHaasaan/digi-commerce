@@ -54,7 +54,7 @@ const ProductDetails = async ({ params }) => {
               ${product.price}
             </span>
             <span className="text-sm bg-orange-100 text-orange-500 px-2 py-1 rounded-full">
-              {product.discountPercentage}% OFF
+            {Math.ceil(product.discountPercentage)}% OFF
             </span>
           </div>
 
