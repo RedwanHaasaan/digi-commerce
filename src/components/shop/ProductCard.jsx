@@ -18,7 +18,7 @@ export default function ProductCard({ product, badge = "New" }) {
         )}
 
         {/* Wishlist */}
-        <WishlistButton product={product} />
+        <WishlistButton productID={product.id} />
 
         {/* Image */}
         <Image
@@ -48,11 +48,11 @@ export default function ProductCard({ product, badge = "New" }) {
         <div className="flex items-center text-yellow-400 text-xs mb-3">
           {Array.from({ length: 5 }).map((_, i) => (
             <span key={i}>
-              {i < Math.round(product?.rating?.rate || 4) ? "★" : "☆"}
+              {i < Math.round(product?.rating || 4) ? "★" : "☆"}
             </span>
           ))}
           <span className="text-gray-400 ml-1 text-[11px]">
-            {product?.rating?.rate || 4.5}
+            {product?.rating || 4.5}
           </span>
         </div>
 

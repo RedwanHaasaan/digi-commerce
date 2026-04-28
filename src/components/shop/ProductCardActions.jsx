@@ -4,15 +4,15 @@ import useCart from "@/hooks/useCart";
 import { useState } from "react";
 import { Heart } from "lucide-react";
 
-export function WishlistButton({product}) {
+export function WishlistButton({productID}) {
   const { addProductToWishList, removeFromWishList, wishList } = useCart();
-  const wished = wishList.some((item) => item.productId === product.id);
+  const wished = wishList.some((item) => item.productId === productID);
   const handleWishList = () => {
     if (wished) {
-      removeFromWishList(product.id);
+      removeFromWishList(productID);
       return;
     }
-    addProductToWishList(product.id);
+    addProductToWishList(productID);
   };
   return (
     <button

@@ -15,27 +15,38 @@ const CartContextProvider = ({children})=>{
       });
 
     // wishlist state
-    const [wishList,setWishList] = useState(()=>{
+    const [wishList, setWishList] = useState(() => {
       if (typeof window !== "undefined") {
         const storedWishList = localStorage.getItem("wishList");
-        return storedWishList ? JSON.parse(storedWishList) : [];
-      } 
+        const parsed = storedWishList ? JSON.parse(storedWishList) : [];
+    
+        // 🔥 clean corrupted data
+        return parsed.filter((item) => item?.productId);
+      }
       return [];
     });
     //add to wishlist
     const addProductToWishList = (productId) => {
+      // 🔥 guard against invalid values
+      if (!productId || typeof productId !== "number") {
+        console.error("Invalid productId:", productId);
+        return;
+      }
       setWishList((prevList) => {
-        const alreadyExists = prevList.some((item) => item.productId === productId);
-        if (alreadyExists) {
-          return prevList;
-        }
+        const alreadyExists = prevList.some(
+          (item) => item.productId === productId
+        );
+    
+        if (alreadyExists) return prevList;
+    
         return [...prevList, { productId }];
       });
     };
     //remove from wishlist
-    const removeFromWishList = (id) => {
-      const updatedWishlist = wishList.filter((wishItem) => wishItem.productId !== id);
-      setWishList(updatedWishlist);
+    const removeFromWishList = (productId) => {
+      setWishList((prevList) =>
+        prevList.filter((item) => item.productId !== productId)
+      );
     };
 
     //add to cart functionality

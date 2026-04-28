@@ -5,7 +5,7 @@ import useWishlistDetails from "@/hooks/useWishlistDetails";
 
 const Page = () => {
   const { wishList, wishListWithDetails } = useWishlistDetails();
-
+  console.log(wishList.length)
   return (
     <div className="max-w-6xl mx-auto px-4 py-10">
       {/* Header */}

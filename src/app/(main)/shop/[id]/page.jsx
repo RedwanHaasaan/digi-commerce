@@ -36,7 +36,7 @@ const ProductDetails = async ({ params }) => {
           <h1 className="text-3xl font-bold mt-3 mb-2">{product.title}</h1>
 
           {/* Brand */}
-          <p className="text-sm text-gray-500 mb-3">Brand: {product.brand}</p>
+          <p className="text-sm text-gray-500 mb-3">Brand: {product?.brand ?? "No Brand Name"}</p>
 
           {/* Rating */}
           <div className="flex items-center gap-2 text-yellow-400 mb-4">
