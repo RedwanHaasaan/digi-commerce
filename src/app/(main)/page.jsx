@@ -28,13 +28,11 @@ export default function Home() {
                 </div>
 
                 <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold bg-linear-to-r from-indigo-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent leading-tight">
-                  Timeless Elegance, Woven In Tradition
+                   Elevate Everyday Living, Beautifully Curated
                 </h1>
 
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Discover the perfect blend of classic design and modern
-                  functionality. Shop our curated collection of premium products
-                  designed for your lifestyle.
+                From beauty and fragrances to furniture and daily essentials, explore a thoughtfully curated collection designed to bring comfort, style, and convenience into every part of your life.
                 </p>
               </div>
 
