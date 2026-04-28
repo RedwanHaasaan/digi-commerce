@@ -1,5 +1,4 @@
 "use client"
-
 import useCart from "@/hooks/useCart";
 
 const ProductDetailsAction = ({productID}) => {
