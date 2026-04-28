@@ -5,7 +5,7 @@ const WishlistButton = () => {
   return (
     <Link
       href="/shop/wishlist"
-      className="relative hidden md:block p-2 text-white hover:bg-transparent group"
+      className="relative p-2 text-white hover:bg-transparent group"
     >
       {/* Ping animation */}
       <span className="absolute inset-0 flex items-center justify-center">

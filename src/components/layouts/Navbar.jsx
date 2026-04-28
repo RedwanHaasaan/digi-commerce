@@ -16,7 +16,7 @@ const Navbar = () => {
           {/* LEFT: Logo */}
           <Link
             href="/"
-            className="text-3xl font-bold bg-linear-to-r from-white to-indigo-100 bg-clip-text text-transparent hover:from-indigo-100 hover:to-white transition-all duration-300 tracking-tight"
+            className="text-2xl font-bold bg-linear-to-r from-white to-indigo-100 bg-clip-text text-transparent hover:from-indigo-100 hover:to-white transition-all duration-300 tracking-tight"
           >
             ✦ DigiCommerce
           </Link>
@@ -52,7 +52,7 @@ const Navbar = () => {
           </div>
 
           {/* RIGHT: Actions */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-0 ">
             {/* Heart Icon for wishList - Desktop */}
             <WishlistButton/>
             
