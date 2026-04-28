@@ -2,29 +2,27 @@
 
 import useCart from "@/hooks/useCart";
 import { useState } from "react";
+import { Heart } from "lucide-react";
 
 export function WishlistButton({product}) {
-  const {addProductToWishList,removeFromWishList}=useCart();
-  const [wished, setWished] = useState(false);
-  const handleWishList = (item) => {
-    const nextWished = !wished;
-    setWished(nextWished);
-
-    if (nextWished) {
-      addProductToWishList(item);
-    } else {
-      removeFromWishList(item.id);
+  const { addProductToWishList, removeFromWishList, wishList } = useCart();
+  const wished = wishList.some((item) => item.productId === product.id);
+  const handleWishList = () => {
+    if (wished) {
+      removeFromWishList(product.id);
+      return;
     }
+    addProductToWishList(product.id);
   };
   return (
     <button
-      onClick={()=> handleWishList(product)}
+      onClick={handleWishList}
       className={`absolute top-3 z-30 right-3 w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md transition cursor-pointer ${
         wished ? "text-red-500" : "text-gray-400"
       }`}
       aria-label={wished ? "Remove from wishlist" : "Add to wishlist"}
     >
-      ♥
+      <Heart size={16} fill={wished ? "currentColor" : "none"} />
     </button>
   );
 }

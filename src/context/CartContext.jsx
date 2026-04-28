@@ -23,14 +23,20 @@ const CartContextProvider = ({children})=>{
       return [];
     });
     //add to wishlist
-    const addProductToWishList =(product)=>{
-      setWishList((prevList)=> [...prevList,product]);
-    }
+    const addProductToWishList = (productId) => {
+      setWishList((prevList) => {
+        const alreadyExists = prevList.some((item) => item.productId === productId);
+        if (alreadyExists) {
+          return prevList;
+        }
+        return [...prevList, { productId }];
+      });
+    };
     //remove from wishlist
-    const removeFromWishList =(id)=>{
-      const updatedWishlist= wishList.filter((wishItem)=>wishItem.id !==id)
+    const removeFromWishList = (id) => {
+      const updatedWishlist = wishList.filter((wishItem) => wishItem.productId !== id);
       setWishList(updatedWishlist);
-    }
+    };
 
     //add to cart functionality
     const addToCartProduct = (productId) => {
@@ -85,6 +91,7 @@ const CartContextProvider = ({children})=>{
     //context value
     const ctxValue={
         cart,
+        wishList,
         addToCartProduct,
         removeFromCart,
         updateQuantity,

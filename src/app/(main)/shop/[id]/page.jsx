@@ -73,7 +73,7 @@ const ProductDetails = async ({ params }) => {
 
           {/* Buttons */}
           <div className="flex gap-4 mb-6">
-            <ProductDetailsAction product={product}/>
+            <ProductDetailsAction product={product.id}/>
           </div>
 
           {/* Extra Info */}

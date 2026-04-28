@@ -1,12 +1,10 @@
-"use client"
 import { Heart } from "lucide-react";
 import Link from "next/link";
 
 const WishlistButton = () => {
-
   return (
     <Link
-      href="/wishlist"
+      href="/shop/wishlist"
       className="relative hidden md:block p-2 text-white hover:bg-transparent group"
     >
       {/* Ping animation */}
