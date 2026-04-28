@@ -25,7 +25,6 @@ const CartContextProvider = ({children})=>{
     //add to wishlist
     const addProductToWishList =(product)=>{
       setWishList((prevList)=> [...prevList,product]);
-      console.log(wishList)
     }
     //remove from wishlist
     const removeFromWishList =(id)=>{
@@ -34,12 +33,26 @@ const CartContextProvider = ({children})=>{
     }
 
     //add to cart functionality
-    const addToCartProduct =(product)=>{
-        setCart((prevCart)=> [...prevCart,product]);
-    }
+    const addToCartProduct = (productId) => {
+      setCart((prevCart) => {
+        const existingProduct = prevCart.find(
+          (item) => item.productId === productId
+        );
+    
+        if (existingProduct) {
+          return prevCart.map((item) =>
+            item.productId === productId
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          );
+        }
+    
+        return [...prevCart, { productId, quantity: 1 }];
+      });
+    };
     //remove cart functionality
     const removeFromCart =(id)=>{
-      const updatedCart= cart.filter((cartItem)=>cartItem.id !==id)
+      const updatedCart= cart.filter((cartItem)=>cartItem.productId !==id)
       setCart(updatedCart);
     }
 

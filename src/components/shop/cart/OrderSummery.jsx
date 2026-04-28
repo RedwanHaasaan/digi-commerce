@@ -1,10 +1,6 @@
-import useCart from "@/hooks/useCart";
-
-const OrderSummery =()=>{
-    const {cart}=useCart();
-
-    const subTotal=cart.reduce((acc,item)=>{
-        return acc+item.price;
+const OrderSummery = ({ items = [] }) => {
+    const subTotal = items.reduce((acc, item) => {
+        return acc + item.price * item.quantity;
     }, 0)
 
     const discount= subTotal*0.1;

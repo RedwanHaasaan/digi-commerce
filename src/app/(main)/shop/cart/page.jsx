@@ -4,10 +4,10 @@ import CartItem from "@/components/shop/cart/CartItem";
 import CouponCode from "@/components/shop/cart/CouponCode";
 import NoProduct from "@/components/shop/cart/NoProduct";
 import OrderSummery from "@/components/shop/cart/OrderSummery";
-import useCart from "@/hooks/useCart";
+import useCartDetails from "@/hooks/useCartDetails";
 
 const Page = () => {
-  const { cart } = useCart();
+  const { cart, cartWithDetails } = useCartDetails();
   return (
     <div className="bg-base-200 min-h-105">
       <div className="container mx-auto py-10 px-2 flex flex-col lg:flex-row gap-10">
@@ -18,7 +18,7 @@ const Page = () => {
           {/* CartItem */}
           <div className="flex flex-col gap-4 max-h-105 overflow-y-auto no-scrollbar">
             {cart.length > 0 ? (
-              cart.map((cartItem) => (
+              cartWithDetails.map((cartItem) => (
                 <CartItem key={cartItem.id} cartItem={cartItem} />
               ))
             ) : (
@@ -34,7 +34,7 @@ const Page = () => {
             <h1 className="text-2xl font-semibold border-b pb-4 border-b-gray-300">
               Order Summery
             </h1>
-            <OrderSummery/>
+            <OrderSummery items={cartWithDetails} />
             {/* Go to checkout */}
             <CartButton text="Checkout" path="/checkout"/>
           </div>

@@ -72,7 +72,7 @@ export default function ProductCard({ product, badge = "New" }) {
         </div>
 
         {/* Button */}
-        <AddToCartButton product={product}/>
+        <AddToCartButton productID={product.id}/>
       </div>
     </div>
   );

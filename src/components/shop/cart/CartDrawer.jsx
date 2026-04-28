@@ -1,12 +1,12 @@
 "use client";
-import useCart from "@/hooks/useCart";
 import CartButton from "./CartButton";
 import CartItem from "./CartItem";
 import NoProduct from "./NoProduct";
 import OrderSummery from "./OrderSummery";
+import useCartDetails from "@/hooks/useCartDetails";
 
 export default function CartDrawer({ children }) {
-  const { cart } = useCart();
+  const { cart, cartWithDetails } = useCartDetails();
   return (
     <div className="drawer drawer-end">
       {/* Toggle */}
@@ -41,7 +41,7 @@ export default function CartDrawer({ children }) {
           {/* Items */}
           <div className="flex-1 max-h-132 overflow-y-auto no-scrollbar space-y-5 pr-1">
             {cart.length > 0 ? (
-              cart.map((cartItem) => (
+              cartWithDetails.map((cartItem) => (
                 <CartItem key={cartItem.id} cartItem={cartItem} />
               ))
             ) : (
@@ -52,7 +52,7 @@ export default function CartDrawer({ children }) {
           </div>
           {/* Footer */}
           <div className="mt-6 border-t border-gray-200 pt-2">
-              <OrderSummery/>
+              <OrderSummery items={cartWithDetails} />
               {/* Go to cart */}
               <CartButton text="Go to Cart" path="/shop/cart"/>
           </div>

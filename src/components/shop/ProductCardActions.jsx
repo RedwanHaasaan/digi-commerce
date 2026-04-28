@@ -29,19 +29,19 @@ export function WishlistButton({product}) {
   );
 }
 
-export function AddToCartButton({product}) {
+export function AddToCartButton({productID}) {
   const{addToCartProduct}=useCart();
   const [added, setAdded] = useState(false);
 
-  const handleAdd = (item) => {
+  const handleAdd = (itemID) => {
     setAdded(true);
-    addToCartProduct(item)
+    addToCartProduct(itemID)
     setTimeout(() => setAdded(false), 1500);
   };
 
   return (
     <button
-      onClick={()=>handleAdd(product)}
+      onClick={()=>handleAdd(productID)}
       className={`w-full py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer ${
         added
           ? "bg-green-500 text-white"

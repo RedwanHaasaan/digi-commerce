@@ -25,6 +25,7 @@ const CartItem =({cartItem})=>{
           {cartItem.title}
         </p>
         <p className="text-xs text-gray-400 mt-1">{cartItem.category}</p>
+        <p className="text-xs text-gray-500 mt-1">Quantity: {cartItem.quantity}</p>
 
         <div className="flex items-center gap-2 mt-2">
           <span className="text-base font-semibold text-indigo-600">
