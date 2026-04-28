@@ -27,7 +27,7 @@ export default function Home() {
                   </span>
                 </div>
 
-                <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold bg-linear-to-r from-indigo-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent leading-tight">
+                <h1 className="text-3xl md:text-5xl xl:text-6xl font-bold bg-linear-to-r from-indigo-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent leading-tight">
                    Elevate Everyday Living, Beautifully Curated
                 </h1>
 
