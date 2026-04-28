@@ -16,7 +16,7 @@ const Page = () => {
             Your Cart
           </h1>
           {/* CartItem */}
-          <div className="flex flex-col gap-4 max-h-105 overflow-y-auto no-scrollbar">
+          <div className="flex flex-col gap-4 xl:max-h-105 overflow-y-auto no-scrollbar">
             {cart.length > 0 ? (
               cartWithDetails.map((cartItem) => (
                 <CartItem key={cartItem.id} cartItem={cartItem} />
