@@ -1,8 +1,9 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, ShoppingCart, Search} from "lucide-react";
+import { Menu, X, ShoppingCart, Heart} from "lucide-react";
 import useCart from "@/hooks/useCart";
+import WishlistButton from "../Wishlist/WishListButton";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -52,10 +53,8 @@ const Navbar = () => {
 
           {/* RIGHT: Actions */}
           <div className="flex items-center gap-4">
-            {/* Search Icon - Desktop */}
-            <button className="hidden md:block p-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-300">
-              <Search size={20} />
-            </button>
+            {/* Heart Icon for wishList - Desktop */}
+            <WishlistButton/>
             
             {/* Cart Icon - Desktop */}
             <label htmlFor="cart-drawer" className="hidden md:block p-2 text-white hover:bg-white/10 rounded-lg transition-colors duration-300 relative cursor-pointer">
