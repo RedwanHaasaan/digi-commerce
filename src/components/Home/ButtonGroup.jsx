@@ -14,8 +14,8 @@ const ButtonGroup = () => {
       </Link>
 
       {/* Secondary Button */}
-      <Link href="#collection" className="group px-8 py-4 rounded-xl border-2 border-indigo-600 text-indigo-600 font-bold hover:bg-indigo-50 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 hover:border-purple-600 hover:text-purple-600">
-        Explore Collections
+      <Link href="/contact" className="group px-8 py-4 rounded-xl border-2 border-indigo-600 text-indigo-600 font-bold hover:bg-transparent active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 hover:border-purple-600 hover:text-purple-600">
+        Contact US
         <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform duration-300" />
       </Link>
     </div>
