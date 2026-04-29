@@ -39,7 +39,7 @@ export default function CartDrawer({ children }) {
           </div>
 
           {/* Items */}
-          <div className="flex-1 max-h-132 overflow-y-auto no-scrollbar space-y-5 pr-1">
+          <div className="flex-3 max-h-170 overflow-y-auto no-scrollbar space-y-5 pr-1">
             {cart.length > 0 ? (
               cartWithDetails.map((cartItem) => (
                 <CartItem key={cartItem.id} cartItem={cartItem} />
@@ -51,10 +51,9 @@ export default function CartDrawer({ children }) {
           <div>
           </div>
           {/* Footer */}
-          <div className="mt-6 border-t border-gray-200 pt-2">
-              <OrderSummery items={cartWithDetails} />
+          <div className="absolute bottom-2 mx-auto w-xs mt-6 border-t border-gray-200 pt-2">
               {/* Go to cart */}
-              <CartButton text="Go to Cart" path="/shop/cart"/>
+              <CartButton classname="flex-col" btnCls="text-center text-xs text-gray-400 mt-3 hover:text-indigo-500 cursor-pointer transition" text="Go to Cart" path="/shop/cart/"/>
           </div>
         </div>
       </div>
